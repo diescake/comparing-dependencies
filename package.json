@@ -1,0 +1,11 @@
+{
+  "name": "comparing-dependencies",
+  "version": "1.0.0",
+  "main": "main.js",
+  "repository": "git@github.com:diescake/comparing-dependencies.git",
+  "author": "diescake",
+  "license": "MIT",
+  "scripts": {
+    "start": "node main.js"
+  }
+}
