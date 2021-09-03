@@ -7,6 +7,7 @@ const DIR_PATH = './inputs'
 const fileNames = fs
   .readdirSync(DIR_PATH, { withFileTypes: true })
   .map(dirent => dirent.name.split('.')[0])
+  .filter(v => v)
 
 const deps = fileNames
   .map(fileName => require(`${DIR_PATH}/${fileName}.json`))
