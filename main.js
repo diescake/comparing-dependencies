@@ -1,8 +1,9 @@
 const fs = require('fs')
-const _ = require('lodash');
 const { parse } = require('json2csv');
 
 const DIR_PATH = './inputs'
+
+const uniq = arr => [... new Set(arr)]
 
 const fileNames = fs
   .readdirSync(DIR_PATH, { withFileTypes: true })
@@ -16,7 +17,7 @@ const deps = fileNames
     ...Object.keys(json.devDependencies),
   ]))
 
-const libraries = _.uniq(deps.flat()).sort()
+const libraries = uniq(deps.flat()).sort()
 const header = ['library', ...fileNames]
 
 const table = [
