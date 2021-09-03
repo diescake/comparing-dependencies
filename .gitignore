@@ -104,7 +104,7 @@ dist
 .tern-port
 
 # inputs
-inputs/
+inputs/*.json
 
 # outputs
 result.csv
