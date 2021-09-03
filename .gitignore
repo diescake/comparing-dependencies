@@ -106,3 +106,5 @@ dist
 # inputs
 inputs/
 
+# outputs
+result.csv
