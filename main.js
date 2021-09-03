@@ -28,6 +28,6 @@ const table = [
   ]))
 ]
 
-const csv = parse(table)
+const csv = parse(table, { header: false })
 
 fs.writeFileSync('result.csv', csv)
