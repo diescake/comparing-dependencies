@@ -12,27 +12,31 @@ const fileNames = fs
   .map(dirent => dirent.name.split('.')[0])
   .filter(v => v)
 
-const deps = fileNames
+const allDeps = fileNames
   .map(fileName => require(`${DIR_PATH}/${fileName}.json`))
   .map(json => ([
-    ...Object.keys(json.dependencies),
-    ...Object.keys(json.devDependencies),
+    ...Object.entries(json.dependencies),
+    ...Object.entries(json.devDependencies)
   ]))
 
-const libraries = deps
+const libraryNames = allDeps
   .flat()
+  .map(dep => dep[0])
   .uniq()
-  .filter(library => !library.startsWith('@types/'))
+  .filter(libraryName => !libraryName.startsWith('@types/'))
   .sort()
 
 const header = ['library', ...fileNames]
 
 const table = [
   header,
-  ...libraries.map(library => ([
-    library,
-    ...deps.map(v => v.includes(library) ? '◯' : ''),
-  ]))
+  ...libraryNames.map(libraryName => [
+    libraryName,
+    ...allDeps.map(deps => {
+      const dep = deps.find(dep => dep[0] === libraryName)
+      return dep?.[1] ?? ''
+    }),
+  ]),
 ]
 
 const csv = parse(table, { header: false })
