@@ -17,7 +17,10 @@ const deps = fileNames
     ...Object.keys(json.devDependencies),
   ]))
 
-const libraries = uniq(deps.flat()).sort()
+const libraries = uniq(deps.flat())
+  .filter(library => !library.startsWith('@types/'))
+  .sort()
+
 const header = ['library', ...fileNames]
 
 const table = [
