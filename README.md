@@ -33,7 +33,7 @@ inputs/
 ### Running
 
 ```sh
-$ yarn start
+$ yarn generate
 ```
 
 ### Confirming result
