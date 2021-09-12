@@ -1,9 +1,11 @@
 const fs = require('fs')
-const { parse } = require('json2csv');
+const { parse } = require('json2csv')
 
 const DIR_PATH = './inputs'
 
-const uniq = arr => [... new Set(arr)]
+Array.prototype.uniq = function () {
+  return [...new Set(this)]
+}
 
 const fileNames = fs
   .readdirSync(DIR_PATH, { withFileTypes: true })
@@ -17,7 +19,9 @@ const deps = fileNames
     ...Object.keys(json.devDependencies),
   ]))
 
-const libraries = uniq(deps.flat())
+const libraries = deps
+  .flat()
+  .uniq()
   .filter(library => !library.startsWith('@types/'))
   .sort()
 
