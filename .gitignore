@@ -108,3 +108,4 @@ inputs/*.json
 
 # outputs
 result.csv
+copy.sh
