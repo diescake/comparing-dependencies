@@ -9,7 +9,7 @@
   "scripts": {
     "run-example": "node examples/main.js",
     "build": "node ./build.js",
-    "prepublish": "node ./build.js"
+    "prepublish": "node ./build.js --release"
   },
   "dependencies": {
     "json2csv": "^5.0.6"
