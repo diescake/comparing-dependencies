@@ -1,6 +1,6 @@
 # comparing-dependencies
 
-This is a node application that imports multiple package.json files and outputs the comparison results of depending libraries as a CSV file.
+This is a npm library that imports multiple package.json files and outputs the comparison results of depending libraries as a CSV file.
 
 | library     | prj1    | prj2    | prj3    |
 | ----------- | ------- | ------- | ------- |
@@ -12,11 +12,17 @@ This is a node application that imports multiple package.json files and outputs 
 
 ## How to use
 
-WIP
+```
+yarn add comparing-dependencies
+```
 
 ## API
 
-WIP
+### createCsv
+
+```ts
+createCsv(jsons: {}[]): string
+```
 
 ## Examples
 
