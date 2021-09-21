@@ -10,7 +10,7 @@ const extractLibraryNames = allDeps => {
     .sort()
 }
 
-exports.createCsv = packageJsons => {
+const createCsv = packageJsons => {
   const allDeps = packageJsons.map(json => [...Object.entries(json.dependencies), ...Object.entries(json.devDependencies)])
   const libraryNames = extractLibraryNames(allDeps)
 
@@ -30,3 +30,6 @@ exports.createCsv = packageJsons => {
 
   return parse(table, { header: false })
 }
+
+module.exports = createCsv
+module.exports.default = createCsv
