@@ -1,18 +1,20 @@
 {
   "name": "comparing-dependencies",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "This library outputs the comparison results of depending libraries as a CSV file.",
-  "main": "main.js",
+  "main": "dist/main.js",
   "repository": "git@github.com:diescake/comparing-dependencies.git",
   "author": "diescake",
   "license": "MIT",
   "scripts": {
-    "run-example": "node examples/main.js"
+    "run-example": "node examples/main.js",
+    "build": "node ./build.js"
   },
   "dependencies": {
     "json2csv": "^5.0.6"
   },
   "devDependencies": {
+    "esbuild": "^0.12.28",
     "eslint": "^7.32.0",
     "eslint-config-smarthr": "^5.0.3",
     "prettier": "^2.4.1",

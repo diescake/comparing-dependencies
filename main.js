@@ -1,8 +1,8 @@
-const { parse } = require('json2csv')
+import { parse } from 'json2csv'
 
 const uniq = arr => [...new Set(arr)]
 
-const extractLibraryNames = allDeps => {
+export const extractLibraryNames = allDeps => {
   const _libraryNames = allDeps.flat().map(dep => dep[0])
 
   return uniq(_libraryNames)
@@ -30,6 +30,3 @@ const createCsv = packageJsons => {
 
   return parse(table, { header: false })
 }
-
-module.exports = createCsv
-module.exports.default = createCsv
