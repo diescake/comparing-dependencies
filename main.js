@@ -5,10 +5,7 @@ Array.prototype.uniq = function () {
 }
 
 exports.createCsv = packageJsons => {
-  const allDeps = packageJsons.map(json => ([
-    ...Object.entries(json.dependencies),
-    ...Object.entries(json.devDependencies)
-  ]))
+  const allDeps = packageJsons.map(json => [...Object.entries(json.dependencies), ...Object.entries(json.devDependencies)])
 
   const libraryNames = allDeps
     .flat()

@@ -10,5 +10,5 @@ const packageJsons = fs
   .filter(fileName => fileName.split('.')[1] === 'json')
   .map(fileName => require(`${DIR_PATH}/${fileName}`))
 
-const csv = createCsv(packageJsons);
+const csv = createCsv(packageJsons)
 fs.writeFileSync(ARTIFACT_NAME, csv)
