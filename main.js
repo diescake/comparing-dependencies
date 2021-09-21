@@ -1,18 +1,18 @@
 const { parse } = require('json2csv')
 
-Array.prototype.uniq = function () {
-  return [...new Set(this)]
+const uniq = arr => [...new Set(arr)]
+
+const extractLibraryNames = allDeps => {
+  const _libraryNames = allDeps.flat().map(dep => dep[0])
+
+  return uniq(_libraryNames)
+    .filter(libraryName => !libraryName.startsWith('@types/'))
+    .sort()
 }
 
 exports.createCsv = packageJsons => {
   const allDeps = packageJsons.map(json => [...Object.entries(json.dependencies), ...Object.entries(json.devDependencies)])
-
-  const libraryNames = allDeps
-    .flat()
-    .map(dep => dep[0])
-    .uniq()
-    .filter(libraryName => !libraryName.startsWith('@types/'))
-    .sort()
+  const libraryNames = extractLibraryNames(allDeps)
 
   const fileNames = packageJsons.map(json => json.name)
   const header = ['library', ...fileNames]
@@ -22,8 +22,8 @@ exports.createCsv = packageJsons => {
     ...libraryNames.map(libraryName => [
       libraryName,
       ...allDeps.map(deps => {
-        const dep = deps.find(dep => dep[0] === libraryName)
-        return dep?.[1] ?? ''
+        const foundDep = deps.find(dep => dep[0] === libraryName)
+        return foundDep?.[1] ?? ''
       }),
     ]),
   ]

@@ -1,5 +1,8 @@
 {
   "extends": "smarthr",
+  "globals": {
+    "__dirname": true
+  },
   "rules": {
     "no-confusing-arrow": 0
   }
