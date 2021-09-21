@@ -14,6 +14,10 @@ This is a node application that imports multiple package.json files and outputs 
 
 WIP
 
+## API
+
+WIP
+
 ## Examples
 
 - [Examples for comparing-dependencies](./examples)
