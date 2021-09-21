@@ -1,8 +1,8 @@
 import { parse } from 'json2csv'
 
-const uniq = arr => [...new Set(arr)]
+const uniq = (arr: string[]) => [...new Set(arr)]
 
-export const extractLibraryNames = allDeps => {
+export const extractLibraryNames = (allDeps: Array<Array<[string, unknown]>>) => {
   const _libraryNames = allDeps.flat().map(dep => dep[0])
 
   return uniq(_libraryNames)
@@ -10,11 +10,11 @@ export const extractLibraryNames = allDeps => {
     .sort()
 }
 
-const createCsv = packageJsons => {
+export const createCsv = (packageJsons: Array<Record<string, unknown>>) => {
   const allDeps = packageJsons.map(json => [...Object.entries(json.dependencies), ...Object.entries(json.devDependencies)])
   const libraryNames = extractLibraryNames(allDeps)
 
-  const fileNames = packageJsons.map(json => json.name)
+  const fileNames = packageJsons.map(json => json.name) as string[]
   const header = ['library', ...fileNames]
 
   const table = [
