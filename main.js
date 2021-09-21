@@ -2,23 +2,17 @@ const fs = require('fs')
 const { parse } = require('json2csv')
 
 const DIR_PATH = './inputs'
+const ARTIFACT_NAME = 'result.csv'
 
 Array.prototype.uniq = function () {
   return [...new Set(this)]
 }
 
-const main = () => {
-  const fileNames = fs
-    .readdirSync(DIR_PATH, { withFileTypes: true })
-    .map(dirent => dirent.name.split('.')[0])
-    .filter(v => v)
-
-  const allDeps = fileNames
-    .map(fileName => require(`${DIR_PATH}/${fileName}.json`))
-    .map(json => ([
-      ...Object.entries(json.dependencies),
-      ...Object.entries(json.devDependencies)
-    ]))
+const createCsv = packageJsons => {
+  const allDeps = packageJsons.map(json => ([
+    ...Object.entries(json.dependencies),
+    ...Object.entries(json.devDependencies)
+  ]))
 
   const libraryNames = allDeps
     .flat()
@@ -27,6 +21,7 @@ const main = () => {
     .filter(libraryName => !libraryName.startsWith('@types/'))
     .sort()
 
+  const fileNames = packageJsons.map(json => json.name)
   const header = ['library', ...fileNames]
 
   const table = [
@@ -40,9 +35,13 @@ const main = () => {
     ]),
   ]
 
-  const csv = parse(table, { header: false })
-
-  fs.writeFileSync('result.csv', csv)
+  return parse(table, { header: false })
 }
 
-main()
+const packageJsons = fs
+  .readdirSync(DIR_PATH)
+  .filter(fileName => fileName.split('.')[1] === 'json')
+  .map(fileName => require(`${DIR_PATH}/${fileName}`))
+
+const csv = createCsv(packageJsons);
+fs.writeFileSync(ARTIFACT_NAME, csv)
