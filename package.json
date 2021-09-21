@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "run-example": "node examples/main.js",
-    "build": "node ./build.js"
+    "build": "node ./build.js",
+    "prepublish": "node ./build.js"
   },
   "dependencies": {
     "json2csv": "^5.0.6"
