@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node main.js",
-    "generate": "node main.js"
+    "run-example": "node examples/main.js"
   },
   "dependencies": {
     "json2csv": "^5.0.6"

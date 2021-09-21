@@ -1,14 +1,10 @@
-const fs = require('fs')
 const { parse } = require('json2csv')
-
-const DIR_PATH = './inputs'
-const ARTIFACT_NAME = 'result.csv'
 
 Array.prototype.uniq = function () {
   return [...new Set(this)]
 }
 
-const createCsv = packageJsons => {
+exports.createCsv = packageJsons => {
   const allDeps = packageJsons.map(json => ([
     ...Object.entries(json.dependencies),
     ...Object.entries(json.devDependencies)
@@ -37,11 +33,3 @@ const createCsv = packageJsons => {
 
   return parse(table, { header: false })
 }
-
-const packageJsons = fs
-  .readdirSync(DIR_PATH)
-  .filter(fileName => fileName.split('.')[1] === 'json')
-  .map(fileName => require(`${DIR_PATH}/${fileName}`))
-
-const csv = createCsv(packageJsons);
-fs.writeFileSync(ARTIFACT_NAME, csv)
