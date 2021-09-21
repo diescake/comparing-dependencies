@@ -1,0 +1,6 @@
+{
+  "extends": "smarthr",
+  "rules": {
+    "no-confusing-arrow": 0
+  }
+}

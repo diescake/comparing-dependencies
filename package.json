@@ -11,5 +11,11 @@
   },
   "dependencies": {
     "json2csv": "^5.0.6"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-smarthr": "^5.0.3",
+    "prettier": "^2.4.1",
+    "prettier-config-smarthr": "^1.0.0"
   }
 }
