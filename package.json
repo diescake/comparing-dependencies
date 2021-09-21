@@ -1,6 +1,6 @@
 {
   "name": "comparing-dependencies",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "This library outputs the comparison results of depending libraries as a CSV file.",
   "main": "dist/main.js",
   "repository": "git@github.com:diescake/comparing-dependencies.git",
