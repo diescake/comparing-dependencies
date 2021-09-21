@@ -1,8 +1,9 @@
 import { parse } from 'json2csv'
+import { PackageJson } from 'type-fest'
 
 const uniq = (arr: string[]) => [...new Set(arr)]
 
-const extractLibraryNames = (allDeps: Array<Array<[string, unknown]>>) => {
+const extractLibraryNames = (allDeps: Array<Array<[string, string]>>) => {
   const _libraryNames = allDeps.flat().map(dep => dep[0])
 
   return uniq(_libraryNames)
@@ -10,10 +11,10 @@ const extractLibraryNames = (allDeps: Array<Array<[string, unknown]>>) => {
     .sort()
 }
 
-export const createCsv = (packageJsons: Array<Record<string, unknown>>) => {
+export const createCsv = (packageJsons: PackageJson[]) => {
   const allDeps = packageJsons.map(json => [
-    ...Object.entries(json.dependencies as Record<string, string>),
-    ...Object.entries(json.devDependencies as Record<string, string>),
+    ...Object.entries(json.dependencies ?? {}),
+    ...Object.entries(json.devDependencies ?? {}),
   ])
   const libraryNames = extractLibraryNames(allDeps)
 
