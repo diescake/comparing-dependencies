@@ -10,15 +10,14 @@
   "license": "MIT",
   "scripts": {
     "run-example": "node examples/main.js",
-    "build": "node ./build.js",
-    "prepare": "rm -rf dist && tsc"
+    "build": "rm -rf dist && tsc",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "json2csv": "^5.0.6"
   },
   "devDependencies": {
     "@types/json2csv": "^5.0.3",
-    "esbuild": "^0.12.28",
     "eslint": "^7.32.0",
     "eslint-config-smarthr": "^5.0.3",
     "prettier": "^2.4.1",
