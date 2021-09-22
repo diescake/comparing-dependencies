@@ -12,8 +12,8 @@ This is a npm library that imports multiple package.json files and outputs the c
 
 ## How to use
 
-```
-yarn add comparing-dependencies
+```sh
+$ yarn add comparing-dependencies
 ```
 
 ## API
@@ -21,6 +21,8 @@ yarn add comparing-dependencies
 ```ts
 createCsv(packageJsons: PackageJson[]): string
 ```
+
+Note: `PackageJson` type is declared in [type-fest](https://github.com/sindresorhus/type-fest).
 
 ## Usage
 
@@ -55,6 +57,13 @@ const csv = createCsv([
 ])
 
 console.log(csv)
+// library,proj_01,proj_02,proj_03
+// dayjs,^1.10,3,,
+// moment,,,^2.29.1
+// react,^17.0.2,^17.0.2,
+// react-redux,,^7.2.4,
+// webpack,^5.51.1,^5.47.1,^4.46.0
+
 ```
 
 ## Examples
