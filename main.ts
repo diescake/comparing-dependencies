@@ -34,3 +34,5 @@ export const createCsv = (packageJsons: PackageJson[]) => {
 
   return parse(table, { header: false })
 }
+
+export { PackageJson }
