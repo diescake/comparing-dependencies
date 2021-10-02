@@ -1,6 +1,6 @@
 # comparing-dependencies
 
-This is a npm library that imports multiple package.json files and outputs the comparison results of depending libraries as a CSV file.
+This is a npm library that imports multiple package.json files and outputs the comparison results of depending libraries as a CSV format string.
 
 | library     | prj_01  | prj_02  | prj_03  |
 | ----------- | ------- | ------- | ------- |
@@ -24,7 +24,7 @@ createCsv(packageJsons: PackageJson[]): string
 
 Note: `PackageJson` type is declared in [type-fest](https://github.com/sindresorhus/type-fest).
 
-## Usage
+### Usage
 
 ```ts
 import { createCsv } from 'comparing-dependencies'
@@ -57,6 +57,7 @@ const csv = createCsv([
 ])
 
 console.log(csv)
+
 // library,proj_01,proj_02,proj_03
 // dayjs,^1.10,3,,
 // moment,,,^2.29.1
@@ -66,6 +67,6 @@ console.log(csv)
 
 ```
 
-## Examples
+## Example codes
 
 - [Examples for comparing-dependencies](./examples)
