@@ -73,3 +73,30 @@ console.log(csv)
 ## Example codes
 
 - [Examples for comparing-dependencies](./examples)
+
+### Replacing package.json files
+
+Place the package.json files that you want to compare under the `./examples/inputs` directory. Then, the `name` field in each package.json will be output as a column name in the CSV.
+
+```
+examples/inputs/
+  |- example_package_01.json
+  |- example_package_02.json
+  |- example_package_03.json
+```
+
+These file names can be anything you want.
+
+### Running
+
+```sh
+$ yarn run-example
+```
+
+### Checking the result
+
+The `result.csv` will be output at the `./examples`.
+
+```sh
+$ open ./examples/result.csv
+```

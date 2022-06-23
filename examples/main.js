@@ -1,14 +1,20 @@
-const fs = require('fs')
-const path = require('path')
-const createCsv = require('../main').createCsv
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
-const DIR_PATH = './inputs'
-const ARTIFACT_NAME = 'result.csv'
+import { createCsv } from '../dist/main.js'
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const inputsPath = path.resolve(__dirname, 'inputs')
+const outputFilePath = path.resolve(__dirname, 'result.csv')
 
 const packageJsons = fs
-  .readdirSync(path.resolve(__dirname, DIR_PATH))
+  .readdirSync(inputsPath)
   .filter(fileName => fileName.split('.')[1] === 'json')
-  .map(fileName => require(`${DIR_PATH}/${fileName}`))
+  .map(fileName => JSON.parse(fs.readFileSync(path.resolve(inputsPath, fileName), 'utf8')))
 
 const csv = createCsv(packageJsons)
-fs.writeFileSync(ARTIFACT_NAME, csv)
+
+fs.writeFileSync(outputFilePath, csv)
