@@ -3,7 +3,7 @@ import { PackageJson } from 'type-fest'
 
 const uniq = (arr: string[]) => [...new Set(arr)]
 
-const extractLibraryNames = (allDeps: Array<Array<[string, string]>>) => {
+const extractLibraryNames = (allDeps: Array<Array<[string, string?]>>) => {
   const _libraryNames = allDeps.flat().map(dep => dep[0])
 
   return uniq(_libraryNames)
