@@ -1,0 +1,10 @@
+{
+  "name": "prj_01",
+  "dependencies": {
+    "react": "^17.0.2",
+    "dayjs": "^1.10.3"
+  },
+  "devDependencies": {
+    "webpack": "^5.51.1"
+  }
+}

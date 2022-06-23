@@ -1,0 +1,7 @@
+{
+  "name": "prj_03",
+  "dependencies": {
+    "moment": "^2.29.1",
+    "webpack": "^4.46.0"
+  }
+}

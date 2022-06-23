@@ -103,9 +103,6 @@ dist
 # TernJS port file
 .tern-port
 
-# inputs
-examples/inputs/*.json
-
 # outputs
 result.csv
 copy.sh
