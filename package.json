@@ -9,9 +9,8 @@
   "author": "diescake",
   "license": "MIT",
   "scripts": {
-    "run-example": "npm run prepare && node examples/main.js",
+    "run-example": "npm run build && node examples/main.js",
     "build": "rm -rf dist && tsc",
-    "prepare": "npm run build",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest "
   },
   "dependencies": {
