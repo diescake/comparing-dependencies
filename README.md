@@ -31,7 +31,7 @@ import { createCsv } from 'comparing-dependencies'
 
 const csv = createCsv([
   {
-    name: 'proj_01',
+    name: 'prj_01',
     dependencies: {
       react: '^17.0.2',
       dayjs: '^1.10.3',
@@ -41,7 +41,7 @@ const csv = createCsv([
     },
   },
   {
-    name: 'proj_02',
+    name: 'prj_02',
     dependencies: {
       react: '^17.0.2',
       dayjs: '^1.10.2',
@@ -52,7 +52,7 @@ const csv = createCsv([
     },
   },
   {
-    name: 'proj_03',
+    name: 'prj_03',
     dependencies: {
       moment: '^2.29.1',
       webpack: '^4.46.0',
