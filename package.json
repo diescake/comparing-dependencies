@@ -20,7 +20,7 @@
   "devDependencies": {
     "@swc/core": "^1.2.215",
     "@swc/jest": "^0.2.21",
-    "@types/jest": "^28.1.4",
+    "@types/jest": "^28.1.6",
     "@types/json2csv": "^5.0.3",
     "eslint": "^8.19.0",
     "eslint-config-smarthr": "^6.0.8",
