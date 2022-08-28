@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "json2csv": "^5.0.7",
-    "type-fest": "^2.16.0"
+    "type-fest": "^2.19.0"
   },
   "devDependencies": {
     "@swc/core": "^1.2.241",
